@@ -1,0 +1,731 @@
+{
+  "name": "setup",
+  "permissions": "ADMINISTRATOR",
+  "restriction": "1",
+  "_id": "VLKOc",
+  "actions": [
+    {
+      "member": "1",
+      "varName": "",
+      "info": "16",
+      "storage": "1",
+      "varName2": "Member.Image",
+      "name": "Store Member Info"
+    },
+    {
+      "info": "0",
+      "find": "${serverVars(\"New.Channel\")}",
+      "storage": "1",
+      "varName": "Message.Channel.1",
+      "name": "Find Channel"
+    },
+    {
+      "info": "0",
+      "find": "${serverVars(\"Ticket.Category\")}",
+      "storage": "1",
+      "varName": "Category.Found",
+      "name": "Find Category"
+    },
+    {
+      "comment": "<b><u>Setup Message",
+      "color": "#000000",
+      "name": "Comment"
+    },
+    {
+      "title": "Ticket Setup",
+      "author": "",
+      "color": "FF0000",
+      "url": "",
+      "authorIcon": "",
+      "authorUrl": "",
+      "imageUrl": "",
+      "thumbUrl": "${tempVars(\"Member.Image\")}",
+      "timestamp": "false",
+      "debug": "false",
+      "text": "",
+      "year": "",
+      "month": "",
+      "day": "",
+      "hour": "",
+      "minute": "",
+      "second": "",
+      "storage": "1",
+      "varName": "Embed.1",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "Embed.1",
+      "fieldName": "Ticket Name:",
+      "message": "${serverVars(\"Ticket.Name\")}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "Embed.1",
+      "fieldName": "Ticket Message:",
+      "message": "${serverVars(\"Ticket.Message\")}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "Embed.1",
+      "fieldName": "Ticket Category:",
+      "message": "${tempVars(\"Category.Found\")}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "Embed.1",
+      "name": "Add Blank Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "Embed.1",
+      "fieldName": "Reaction Message:",
+      "message": "${serverVars(\"Reaction.Message\")}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "Embed.1",
+      "fieldName": "Reaction Emoji:",
+      "message": "${serverVars(\"Reaction.Emoji\")}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "Embed.1",
+      "fieldName": "Support Role:",
+      "message": "${serverVars(\"Support.Role\")}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "Embed.1",
+      "name": "Add Blank Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "Embed.1",
+      "fieldName": "Reaction MSG Channel:",
+      "message": "${tempVars(\"Message.Channel.1\")}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "Embed.1",
+      "channel": "0",
+      "varName2": "",
+      "storage3": "1",
+      "varName3": "Setup.Message",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "messageContent": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "comment": "<b><u>Awaiting Response",
+      "color": "#000000",
+      "name": "Comment"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Do you want to enter the setup menu!\nRespond with `Yes`/`No`!",
+      "storage": "1",
+      "varName2": "Response.Message",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "filter": "content.length > 0 && author.id === user.id",
+      "max": "1",
+      "time": "60000",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "1",
+      "iffalseVal": "",
+      "storage2": "1",
+      "varName2": "Yes/No",
+      "name": "Await Response Call Action"
+    },
+    {
+      "storage": "1",
+      "varName": "Yes/No",
+      "conversion": "4",
+      "storage2": "1",
+      "varName2": "yes/no",
+      "name": "Convert Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "yes/no",
+      "comparison": "1",
+      "value": "yes",
+      "iftrue": "4",
+      "iftrueVal": "Yes",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "comment": "<b><u>`No` After Response",
+      "color": "#000000",
+      "name": "Comment"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Setup has been cancelled!",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "anchor_id": "Yes",
+      "color": "#000000",
+      "description": "<b><u>`Yes` After Response",
+      "name": "Create Anchor"
+    },
+    {
+      "comment": "<b><u>Set Ticket Name",
+      "color": "#000000",
+      "name": "Comment"
+    },
+    {
+      "title": "",
+      "author": "",
+      "color": "#f76a54",
+      "url": "",
+      "authorIcon": "",
+      "authorUrl": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "timestamp": "false",
+      "debug": "false",
+      "text": "",
+      "year": "",
+      "month": "",
+      "day": "",
+      "hour": "",
+      "minute": "",
+      "second": "",
+      "storage": "1",
+      "varName": "Ticket.Name.Embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "Ticket.Name.Embed",
+      "message": "Please enter a new ticket name!\n[The number will be set automatically]",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "Ticket.Name.Embed",
+      "channel": "0",
+      "varName2": "",
+      "storage3": "0",
+      "varName3": "Setup.Message",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "messageContent": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "filter": "content.length > 0 && author.id === user.id",
+      "max": "1",
+      "time": "60000",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "1",
+      "iffalseVal": "",
+      "storage2": "2",
+      "varName2": "Ticket.Name",
+      "name": "Await Response Call Action"
+    },
+    {
+      "storage": "2",
+      "varName": "Ticket.Name",
+      "name": "Save Variable"
+    },
+    {
+      "comment": "<b><u>Set Ticket Message",
+      "color": "#000000",
+      "name": "Comment"
+    },
+    {
+      "title": "",
+      "author": "",
+      "color": "#f76a54",
+      "url": "",
+      "authorIcon": "",
+      "authorUrl": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "timestamp": "false",
+      "debug": "false",
+      "text": "",
+      "year": "",
+      "month": "",
+      "day": "",
+      "hour": "",
+      "minute": "",
+      "second": "",
+      "storage": "1",
+      "varName": "Ticket.Message.Embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "Ticket.Message.Embed",
+      "message": "Please enter a new ticket message!\n[This will be displayed when a person opens a ticket]",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "Ticket.Message.Embed",
+      "channel": "0",
+      "varName2": "",
+      "storage3": "0",
+      "varName3": "Setup.Message",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "messageContent": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "filter": "content.length > 0 && author.id === user.id",
+      "max": "1",
+      "time": "60000",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "1",
+      "iffalseVal": "",
+      "storage2": "2",
+      "varName2": "Ticket.Message",
+      "name": "Await Response Call Action"
+    },
+    {
+      "storage": "2",
+      "varName": "Ticket.Message",
+      "name": "Save Variable"
+    },
+    {
+      "comment": "<b><u>Set Support Role",
+      "color": "#000000",
+      "name": "Comment"
+    },
+    {
+      "title": "",
+      "author": "",
+      "color": "#f76a54",
+      "url": "",
+      "authorIcon": "",
+      "authorUrl": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "timestamp": "false",
+      "debug": "false",
+      "text": "",
+      "year": "",
+      "month": "",
+      "day": "",
+      "hour": "",
+      "minute": "",
+      "second": "",
+      "storage": "1",
+      "varName": "Support.Role.Embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "Support.Role.Embed",
+      "message": "Please mention the support role!\n[This will ping whoever has the role]",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "Support.Role.Embed",
+      "channel": "0",
+      "varName2": "",
+      "storage3": "0",
+      "varName3": "Setup.Message",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "messageContent": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "filter": "content.length > 0 && author.id === user.id",
+      "max": "1",
+      "time": "60000",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "1",
+      "iffalseVal": "",
+      "storage2": "2",
+      "varName2": "Support.Role",
+      "name": "Await Response Call Action"
+    },
+    {
+      "storage": "2",
+      "varName": "Support.Role",
+      "name": "Save Variable"
+    },
+    {
+      "comment": "<b><u>Set Reaction Message",
+      "color": "#000000",
+      "name": "Comment"
+    },
+    {
+      "title": "",
+      "author": "",
+      "color": "#f76a54",
+      "url": "",
+      "authorIcon": "",
+      "authorUrl": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "timestamp": "false",
+      "debug": "false",
+      "text": "",
+      "year": "",
+      "month": "",
+      "day": "",
+      "hour": "",
+      "minute": "",
+      "second": "",
+      "storage": "1",
+      "varName": "Reaction.Message.Embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "Reaction.Message.Embed",
+      "message": "Please enter a message for the reaction message!\n[The message they react to, to open a new ticket]",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "Reaction.Message.Embed",
+      "channel": "0",
+      "varName2": "",
+      "storage3": "0",
+      "varName3": "Setup.Message",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "messageContent": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "filter": "content.length > 0 && author.id === user.id",
+      "max": "1",
+      "time": "60000",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "1",
+      "iffalseVal": "",
+      "storage2": "2",
+      "varName2": "Reaction.Message",
+      "name": "Await Response Call Action"
+    },
+    {
+      "storage": "2",
+      "varName": "Reaction.Message",
+      "name": "Save Variable"
+    },
+    {
+      "comment": "<b><u>Set Reaction",
+      "color": "#000000",
+      "name": "Comment"
+    },
+    {
+      "title": "",
+      "author": "",
+      "color": "#f76a54",
+      "url": "",
+      "authorIcon": "",
+      "authorUrl": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "timestamp": "false",
+      "debug": "false",
+      "text": "",
+      "year": "",
+      "month": "",
+      "day": "",
+      "hour": "",
+      "minute": "",
+      "second": "",
+      "storage": "1",
+      "varName": "Reaction.Embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "Reaction.Embed",
+      "message": "Please say the Reaction you want to use!\n[Reaction to open a new ticket!]",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "Reaction.Embed",
+      "channel": "0",
+      "varName2": "",
+      "storage3": "0",
+      "varName3": "Setup.Message",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "messageContent": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "filter": "content.length > 0 && author.id === user.id",
+      "max": "1",
+      "time": "60000",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "1",
+      "iffalseVal": "",
+      "storage2": "2",
+      "varName2": "Reaction.Emoji",
+      "name": "Await Response Call Action"
+    },
+    {
+      "storage": "2",
+      "varName": "Reaction.Emoji",
+      "name": "Save Variable"
+    },
+    {
+      "comment": "<b><u>New Ticket Channel",
+      "color": "#000000",
+      "name": "Comment"
+    },
+    {
+      "title": "",
+      "author": "",
+      "color": "#f76a54",
+      "url": "",
+      "authorIcon": "",
+      "authorUrl": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "timestamp": "false",
+      "debug": "false",
+      "text": "",
+      "year": "",
+      "month": "",
+      "day": "",
+      "hour": "",
+      "minute": "",
+      "second": "",
+      "storage": "1",
+      "varName": "New.Ticket.Channel.Embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "New.Ticket.Channel.Embed",
+      "message": "Please enter the Channel ID of where the reaction message will be sent!\n[Right click Channel, Copy ID]",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "New.Ticket.Channel.Embed",
+      "channel": "0",
+      "varName2": "",
+      "storage3": "0",
+      "varName3": "Setup.Message",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "messageContent": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "filter": "content.length > 0 && author.id === user.id",
+      "max": "1",
+      "time": "60000",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "1",
+      "iffalseVal": "",
+      "storage2": "2",
+      "varName2": "New.Channel",
+      "name": "Await Response Call Action"
+    },
+    {
+      "storage": "2",
+      "varName": "New.Channel",
+      "name": "Save Variable"
+    },
+    {
+      "comment": "<b><u>Set Ticket Category",
+      "color": "#000000",
+      "name": "Comment"
+    },
+    {
+      "title": "",
+      "author": "",
+      "color": "#f76a54",
+      "url": "",
+      "authorIcon": "",
+      "authorUrl": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "timestamp": "false",
+      "debug": "false",
+      "text": "",
+      "year": "",
+      "month": "",
+      "day": "",
+      "hour": "",
+      "minute": "",
+      "second": "",
+      "storage": "1",
+      "varName": "Ticket.Category.Embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "Ticket.Category.Embed",
+      "message": "Please enter a Category ID!\n[Right Click a Category and Copy ID]",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "Ticket.Category.Embed",
+      "channel": "0",
+      "varName2": "",
+      "storage3": "0",
+      "varName3": "Setup.Message",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "messageContent": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "filter": "content.length > 0 && author.id === user.id",
+      "max": "1",
+      "time": "60000",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "1",
+      "iffalseVal": "",
+      "storage2": "2",
+      "varName2": "Ticket.Category",
+      "name": "Await Response Call Action"
+    },
+    {
+      "storage": "2",
+      "varName": "Ticket.Category",
+      "name": "Save Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Setup has been completed!",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "comment": "<b><u>Set Ticket Message",
+      "color": "#000000",
+      "name": "Comment"
+    },
+    {
+      "info": "0",
+      "find": "${serverVars(\"New.Channel\")}",
+      "storage": "1",
+      "varName": "Message.Channel",
+      "name": "Find Channel"
+    },
+    {
+      "title": "",
+      "author": "",
+      "color": "",
+      "url": "",
+      "authorIcon": "",
+      "authorUrl": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "timestamp": "false",
+      "debug": "false",
+      "text": "",
+      "year": "",
+      "month": "",
+      "day": "",
+      "hour": "",
+      "minute": "",
+      "second": "",
+      "storage": "1",
+      "varName": "Send.Message.Open",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "Send.Message.Open",
+      "message": "${serverVars(\"Reaction.Message\")}",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "Send.Message.Open",
+      "channel": "5",
+      "varName2": "Message.Channel",
+      "storage3": "2",
+      "varName3": "Sent.MSG",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "messageContent": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "storage": "2",
+      "varName": "Sent.MSG",
+      "emoji": "4",
+      "varName2": "${serverVars(\"Reaction.Emoji\")}",
+      "varName3": "",
+      "name": "Add Reaction"
+    },
+    {
+      "storage": "2",
+      "varName": "Sent.MSG",
+      "name": "Save Variable"
+    }
+  ],
+  "comType": "0"
+}
