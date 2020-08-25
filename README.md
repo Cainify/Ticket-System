@@ -1,7 +1,7 @@
 # Custom Ticket System
 This is an advanced ticketing system made for [Discord Bot Maker](https://store.steampowered.com/app/682130/Discord_Bot_Maker/). Made for Discord.JS V12.
 
-###### Last updated (24/08/2020)
+###### Last updated (25/08/2020)
 
 ## Important Information
 - To use this system you require the latest [DBM Mods](https://dbm-network.github.io/download-git/#/home?url=https://github.com/dbm-network/mods/tree/master/actions). 
