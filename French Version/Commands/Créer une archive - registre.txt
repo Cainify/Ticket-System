@@ -1,0 +1,81 @@
+{
+  "name": "transcript",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "BnSvZ",
+  "actions": [
+    {
+      "channel": "0",
+      "varName": "",
+      "info": "0",
+      "storage": "1",
+      "varName2": "channelTag",
+      "name": "Store Channel Info"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "info": "2",
+      "storage": "1",
+      "varName2": "channelName",
+      "name": "Store Channel Info"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "info": "10",
+      "storage": "1",
+      "varName2": "currentCategoryID",
+      "name": "Store Channel Info"
+    },
+    {
+      "info": "0",
+      "find": "${serverVars(\"Ticket.Category\")}",
+      "storage": "1",
+      "varName": "setCategoryObject",
+      "name": "Find Category"
+    },
+    {
+      "category": "1",
+      "varName": "setCategoryObject",
+      "info": "0",
+      "storage": "1",
+      "varName2": "setCategoryID",
+      "name": "Store Category Info"
+    },
+    {
+      "storage": "1",
+      "varName": "setCategoryID",
+      "comparison": "1",
+      "value": "tempVars(\"currentCategoryID\")",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "1",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Création du registre de ${tempVars(\"channelTag\")}!",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "time": "2",
+      "measurement": "1",
+      "name": "Wait"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "file": "transcripts/${tempVars(\"channelName\")}.log",
+      "message": "Registre de ${tempVars(\"channelTag\")}",
+      "name": "Send File"
+    }
+  ],
+  "comType": "0"
+}
