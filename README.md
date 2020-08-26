@@ -16,9 +16,9 @@ This is an advanced ticketing system made for [Discord Bot Maker](https://store.
 5. Click on "Save Data"
 
 ## How to use
-- Download the files within this repository
-- Copy the raw data from each file
-- Follow Importing Rawdata
+- Download the files within this repository.
+- Copy the raw data from each file.
+- Follow Importing Rawdata.
 
 ## Bugs/Issues/Suggestions
 If you have any bugs, issues or suggestions please contact **Cain#0163** on discord.
