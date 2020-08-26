@@ -21,4 +21,4 @@ This is an advanced ticketing system made for [Discord Bot Maker](https://store.
 - Follow Importing Rawdata
 
 ## Bugs/Issues/Suggestions
-If you have any bugs, issues or suggestions please contact **Cain#0163** on discord
+If you have any bugs, issues or suggestions please contact **Cain#0163** on discord.
