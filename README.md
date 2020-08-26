@@ -20,5 +20,10 @@ This is an advanced ticketing system made for [Discord Bot Maker](https://store.
 - Copy the raw data from each file.
 - Follow Importing Rawdata.
 
+##Last Update:
+French version of the ticket system has been added | Provided by Jhin
+
 ## Bugs/Issues/Suggestions
 If you have any bugs, issues or suggestions please contact **Cain#0163** on discord.
+
+
