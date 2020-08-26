@@ -1,0 +1,100 @@
+{
+  "name": "close",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "kwURO",
+  "actions": [
+    {
+      "comment": "<b><u>Store Variables",
+      "color": "#000000",
+      "name": "Comment"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "info": "10",
+      "storage": "1",
+      "varName2": "channelCategoryID",
+      "name": "Store Channel Info"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "info": "2",
+      "storage": "1",
+      "varName2": "channelName",
+      "name": "Store Channel Info"
+    },
+    {
+      "storage": "1",
+      "varName": "channelCategoryID",
+      "comparison": "5",
+      "value": "serverVars(\"Ticket.Category\")",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "1",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "filename": "./transcripts/${tempVars(\"channelName\")}.log",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "2",
+      "iffalseVal": "9",
+      "name": "Check if File Exists"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Tworzenie transkrypcji!",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "time": "3",
+      "measurement": "1",
+      "name": "Wait"
+    },
+    {
+      "channel": "1",
+      "varName": "",
+      "file": "/transcripts/${tempVars(\"channelName\")}.log",
+      "message": "Transcript File:",
+      "name": "Send File"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Bilet zamykający teraz!",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "time": "3",
+      "measurement": "1",
+      "name": "Wait"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "reason": "",
+      "name": "Delete Channel"
+    }
+  ],
+  "comType": "0",
+  "customData": {
+    "Pastebin": {},
+    "Command Info": {
+      "category": "None",
+      "description": "No Description",
+      "include": "No"
+    }
+  }
+}
